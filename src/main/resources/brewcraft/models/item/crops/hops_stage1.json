@@ -1,0 +1,5 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "brewcraft:blocks/crops/hops_stage_1"
+    }}

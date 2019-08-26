@@ -1,0 +1,30 @@
+itemGroup.tabBrewcraft=BrewCraft
+
+tile.distiller.name=Distiller
+
+tile.hopsgarden.name=Hops Garden
+
+brewcraft.tile.pamhopscrop.name=Hops Crop
+
+item.beachrumitem.name=Beach Rum
+item.cherryvodkaitem.name=Cherry Vodka
+item.coconutrumitem.name=Coconut Rum
+item.handmadevodkaitem.name=Handmade Vodka
+item.hardapplecideritem.name=Hard Apple Cider
+item.hardlemonadeitem.name=Hard Lemonade
+item.honeymeaditem.name=Honey Mead
+item.pinkmoscatoitem.name=Pink Moscato
+item.pmaxrieslingitem.name=P Max Riesling
+item.rennalgolditem.name=Rennal Gold
+item.riverchardonnayitem.name=River Chardonnay
+item.sakeitem.name=Sake
+item.savannazinfandelitem.name=Savanna Zinfandel
+item.spicedrumitem.name=Spiced Rum
+item.swampmerlotitem.name=Swamp Merlot
+item.tiagapinotnoiritem.name=Tiaga Pinot Noir
+item.totalvodkaitem.name=Total Vodka
+item.uglyavocadoginitem.name=Ugly Avocado Gin
+
+item.hopsitem.name=Hops
+item.hopsseeditem.name=Hops Seed
+

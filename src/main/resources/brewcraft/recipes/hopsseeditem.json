@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "brewcraft:hopsseeditem"
+  },
+
+  "ingredients": [
+    {
+      "item": "brewcraft:hopsitem"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

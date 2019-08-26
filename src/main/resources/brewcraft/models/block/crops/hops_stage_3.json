@@ -1,0 +1,6 @@
+{
+	"parent":"block/crop",
+	"textures": {
+		"crop": "brewcraft:blocks/crops/hops_stage_3"
+	}
+}

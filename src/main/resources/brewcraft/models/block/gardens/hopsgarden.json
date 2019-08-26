@@ -1,0 +1,6 @@
+{
+    "parent": "brewcraft:block/pamscross",
+    "textures": {
+        "cross": "brewcraft:blocks/gardens/hopsgarden"
+    }
+}
