@@ -1,4 +1,4 @@
-package com.pam.brewcraft;
+package com.pam.brewcraft.item;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

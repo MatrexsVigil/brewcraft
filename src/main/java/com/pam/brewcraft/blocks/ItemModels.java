@@ -1,4 +1,4 @@
-package com.pam.brewcraft;
+package com.pam.brewcraft.blocks;
 
 import java.util.Collection;
 import java.util.HashMap;

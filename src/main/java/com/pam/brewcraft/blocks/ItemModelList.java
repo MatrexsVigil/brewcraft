@@ -1,6 +1,8 @@
-package com.pam.brewcraft;
+package com.pam.brewcraft.blocks;
 
 import java.util.HashMap;
+
+import com.pam.brewcraft.Reference;
 
 public class ItemModelList {
     private final HashMap<Integer, String> registrations = new HashMap<Integer, String>();

@@ -15,6 +15,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import org.apache.logging.log4j.Logger;
+
+import com.pam.brewcraft.config.ConfigHandler;
+import com.pam.brewcraft.item.ItemRegistry;
+import com.pam.brewcraft.proxy.CommonProxy;
+
 @Mod(modid = Reference.MODID, name = "Pam's BrewCraft", version = Reference.VERSION)
 
 public class brewcraft
@@ -35,19 +41,15 @@ public class brewcraft
 			return new ItemStack(ItemRegistry.rennalgolditem);
 		}
 	};
+	
+	public static ConfigHandler config;
+	public static Logger log;
     
 	  @EventHandler
 	  public void preInit(FMLPreInitializationEvent event) 
 	  {
-		  Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
-			try {
-				cfg.load();
-				
-			} catch (Exception e) {
-				FMLLog.severe(Reference.MODID, "BrewCraft has a problem loading it's configuration");
-			} finally {
-				cfg.save();
-			}
+		  log = event.getModLog();
+			config = new ConfigHandler(new Configuration(event.getSuggestedConfigurationFile()));
 		
 		proxy.preInit(event);	
 			

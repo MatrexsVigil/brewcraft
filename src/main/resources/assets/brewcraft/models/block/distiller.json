@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "up": "brewcraft:blocks/distillertop",
+        "down": "brewcraft:blocks/distillerbottom",
+        "north": "brewcraft:blocks/distillerfront",
+        "south": "brewcraft:blocks/distillerside",
+        "west": "brewcraft:blocks/distillerside",
+        "east": "brewcraft:blocks/distillerside",
+        "particle": "brewcraft:blocks/distillerside"
+    }
+}

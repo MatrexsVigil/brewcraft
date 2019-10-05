@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "brewcraft:distiller" },
+    "facing=south": { "model": "brewcraft:distiller", "y": 180 },
+    "facing=west":  { "model": "brewcraft:distiller", "y": 270 },
+    "facing=east":  { "model": "brewcraft:distiller", "y": 90 }
+  }
+}

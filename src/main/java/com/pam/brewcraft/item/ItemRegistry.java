@@ -1,9 +1,11 @@
-package com.pam.brewcraft;
+package com.pam.brewcraft.item;
 
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import com.pam.brewcraft.brewcraft;
 
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;

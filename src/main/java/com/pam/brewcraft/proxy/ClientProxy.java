@@ -1,4 +1,7 @@
-package com.pam.brewcraft;
+package com.pam.brewcraft.proxy;
+
+import com.pam.brewcraft.blocks.ItemModels;
+import com.pam.brewcraft.item.ItemRenderRegister;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
