@@ -17,21 +17,21 @@ public class DistillerRecipes {
     	//registerItemRecipe(ItemRegistry.waxcombItem, ItemRegistry.beeswaxItem, ItemRegistry.beeswaxItem);
     	//registerItemRecipe(ItemRegistry.honeycombItem, ItemRegistry.honeyItem, ItemRegistry.beeswaxItem);
         
-        registerItemRecipe(Items.REEDS, Items.REEDS, Items.REEDS, Items.GLASS_BOTTLE, ItemRegistry.beachrumitem, Items.SUGAR);
+        registerItemRecipe(Items.REEDS, Items.REEDS, Items.REEDS, ItemRegistry.beachrumitem, Items.SUGAR);
     }
 
-    private static void registerItemRecipe(Item input, Item input2, Item input3, Item input4, Item leftItem, Item rightItem) {
+    private static void registerItemRecipe(Item input, Item input2, Item input3, Item leftItem, Item rightItem) {
         final ItemStack outputLeft = leftItem != null ? new ItemStack(leftItem) : ItemStack.EMPTY;
         final ItemStack outputRight = rightItem != null ? new ItemStack(rightItem) : ItemStack.EMPTY;
 
-        makeItemStackRecipe(new ItemStack(input, 1, 32767), new ItemStack(input2, 1, 32767), new ItemStack(input3, 1, 32767), new ItemStack(input4, 1, 32767), outputLeft, outputRight);
+        makeItemStackRecipe(new ItemStack(input, 1, 32767), new ItemStack(input2, 1, 32767), new ItemStack(input3, 1, 32767), outputLeft, outputRight);
     }
 
-    private static void registerBlockRecipe(Block input, Block input2, Block input3, Block input4, Item leftItem, Item rightItem) {
-        registerItemRecipe(Item.getItemFromBlock(input), Item.getItemFromBlock(input2), Item.getItemFromBlock(input3), Item.getItemFromBlock(input4), leftItem, rightItem);
+    private static void registerBlockRecipe(Block input, Block input2, Block input3, Item leftItem, Item rightItem) {
+        registerItemRecipe(Item.getItemFromBlock(input), Item.getItemFromBlock(input2), Item.getItemFromBlock(input3), leftItem, rightItem);
     }
 
-    private static void makeItemStackRecipe(ItemStack input, ItemStack input2, ItemStack input3, ItemStack input4, ItemStack outputLeft, ItemStack outputRight) {
+    private static void makeItemStackRecipe(ItemStack input, ItemStack input2, ItemStack input3, ItemStack outputLeft, ItemStack outputRight) {
         final ItemStack[] outputs = new ItemStack[] {outputLeft, outputRight};
         distillingList.put(input, outputs);
     }

@@ -10,6 +10,8 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiDistiller extends GuiContainer {
     private static final ResourceLocation gui = new ResourceLocation("brewcraft:textures/gui/distiller.png");
+    
+    
 
     public GuiDistiller(InventoryPlayer invPlayer, TileEntityDistiller distillerTileEntity) {
         super(new ContainerDistiller(invPlayer, distillerTileEntity));

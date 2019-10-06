@@ -25,8 +25,8 @@ public class ContainerDistiller extends Container {
         addSlotToContainer(new SlotPamDistiller(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 0, 18, 17));
         addSlotToContainer(new SlotPamDistiller(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 1, 37, 17));
         addSlotToContainer(new SlotPamDistiller(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 2, 56, 17));
-        addSlotToContainer(new SlotPamDistiller(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 3, 18, 53));
-        addSlotToContainer(new SlotFurnaceFuel(inventory, lastCookTime, lastCookTime, lastCookTime), 4, 14, 53);
+        addSlotToContainer(new SlotPamBottle(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 3, 18, 53));
+        addSlotToContainer(new SlotPamFuel(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 4, 56, 53));
         addSlotToContainer(new SlotPamResult(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 5, 116, 35));
         addSlotToContainer(new SlotPamResult(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 6, 135, 35));
 
@@ -40,11 +40,7 @@ public class ContainerDistiller extends Container {
             addSlotToContainer(new Slot(inventory, i, i * 18 + 8, 142));
         }
     }
-	
-	private void addSlotToContainer(SlotFurnaceFuel slotFurnaceFuel, int i, int j, int k) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
     public void detectAndSendChanges() {
