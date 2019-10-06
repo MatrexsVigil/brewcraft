@@ -19,7 +19,10 @@ public class SlotPamBottle extends SlotItemHandler {
 	
 	public boolean isItemValid(ItemStack stack)
     {
-        return new ItemStack(Items.POTIONITEM, 1, PotionType.getPotionTypeForName("water")) != null;
+        if (Items.POTIONITEM, 1, PotionType.getPotionTypeForName("water")) != null)
+			return true;
+			
+			return false;
     }
 
 
