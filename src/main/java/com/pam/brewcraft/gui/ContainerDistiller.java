@@ -2,6 +2,7 @@ package com.pam.brewcraft.gui;
 
 import javax.annotation.Nullable;
 
+import com.pam.brewcraft.item.DistillerRecipes;
 import com.pam.brewcraft.tileentities.TileEntityDistiller;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,7 +31,7 @@ public class ContainerDistiller extends Container {
         addSlotToContainer(new SlotPamResult(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 5, 116, 35));
         addSlotToContainer(new SlotPamResult(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 6, 135, 35));
 
-        for (int i = 0; i < 7; ++i) {
+        for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 9; ++j) {
                 addSlotToContainer(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
@@ -58,6 +59,45 @@ public class ContainerDistiller extends Container {
         if (id == 0) {
         	entityDistiller.cookTime = (short) data;
         }
+    }
+    
+    @Override
+    public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) {
+        ItemStack itemStack = ItemStack.EMPTY;
+        final Slot slot = inventorySlots.get(index);
+
+        if (slot != null && slot.getStack() != ItemStack.EMPTY) {
+            final ItemStack slotStack = slot.getStack();
+            itemStack = slotStack.copy();
+
+            if (index == 1 || index == 2) {
+                if (!this.mergeItemStack(slotStack, 3, 39, true)) return ItemStack.EMPTY;
+
+                slot.onSlotChange(slotStack, itemStack);
+            } else if (index >= 3) {
+                if (DistillerRecipes.getDistillerResult(slotStack) != null) {
+                    if (!mergeItemStack(slotStack, 0, 1, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (index >= 3 && index < 30) {
+                    if (!mergeItemStack(slotStack, 30, 39, false)) return ItemStack.EMPTY;
+                } else if (index >= 30 && index < 39){
+                    if (!mergeItemStack(slotStack, 3, 30, false)) return ItemStack.EMPTY;
+                }
+            } else if (!mergeItemStack(slotStack, 3, 39, false)) return ItemStack.EMPTY;
+
+            if (slotStack.getCount() == 0) {
+                slot.putStack(ItemStack.EMPTY);
+            } else {
+                slot.onSlotChanged();
+            }
+
+            if (itemStack.getCount() == slotStack.getCount()) return ItemStack.EMPTY;
+
+            slot.onTake(playerIn, slotStack);
+        }
+
+        return itemStack;
     }
 	
 	

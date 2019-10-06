@@ -3,6 +3,8 @@ package com.pam.brewcraft.tileentities;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.pam.brewcraft.item.DistillerRecipes;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -29,9 +31,9 @@ public class TileEntityDistiller extends TileEntity implements ITickable{
     public static Capability<IItemHandler> ITEMS_CAP;
 
     private final ItemStackHandler itemstackhandler = new ItemStackHandler(7);
-    private final RangedWrapper top = new RangedWrapper(itemstackhandler, 0, 1);
+    private final RangedWrapper top = new RangedWrapper(itemstackhandler, 0, 4);
     
-    private final RangedWrapper bottom = new RangedWrapper(itemstackhandler, 1, 7)
+    private final RangedWrapper bottom = new RangedWrapper(itemstackhandler, 5, 6)
     {
         @Nonnull
         @Override
@@ -127,14 +129,68 @@ public class TileEntityDistiller extends TileEntity implements ITickable{
 		}
 	}
 	
-	private boolean canRun()
-	{
+	private boolean canRun() {
+		if(itemstackhandler.getStackInSlot(0).isEmpty())
+			return false;
+		
+		if (itemstackhandler.getStackInSlot(3).isEmpty())
+			return false;
+
+		final ItemStack[] results = DistillerRecipes.getDistillerResult(itemstackhandler.getStackInSlot(0));
+		if(results == null)
+			return false;
+
+		if(!itemstackhandler.getStackInSlot(5).isEmpty()) {
+			if(!itemstackhandler.getStackInSlot(5).isItemEqual(results[0]))
+				return false;
+			if(itemstackhandler.getStackInSlot(5).getCount() + results[0].getCount() > itemstackhandler
+					.getStackInSlot(5).getMaxStackSize())
+				return false;
+		}
+
+		if(results[1] != null && !results[1].isEmpty() && !itemstackhandler.getStackInSlot(6).isEmpty()) {
+			if(!itemstackhandler.getStackInSlot(6).isItemEqual(results[1]))
+				return false;
+			if(itemstackhandler.getStackInSlot(6).getCount() + results[1].getCount() > itemstackhandler
+					.getStackInSlot(6).getMaxStackSize())
+				return false;
+		}
+
 		return true;
 	}
 	
-	private void distillBooze()
-	{
-		
+	private void distillBooze() {
+
+		if(!canRun())
+			return;
+
+		final ItemStack[] results = DistillerRecipes.getDistillerResult(itemstackhandler.getStackInSlot(0));
+		if(results == null)
+			return;
+
+		if(itemstackhandler.getStackInSlot(5).isEmpty()) {
+
+			itemstackhandler.setStackInSlot(5, results[0].copy());
+		}
+		else if(itemstackhandler.getStackInSlot(5).getCount() + results[0].getCount() <= results[0].getMaxStackSize()) {
+			itemstackhandler.getStackInSlot(5)
+					.setCount(itemstackhandler.getStackInSlot(5).getCount() + results[0].getCount());
+		}
+
+		if(!results[1].isEmpty()) {
+			if(itemstackhandler.getStackInSlot(6).isEmpty()) {
+				itemstackhandler.setStackInSlot(6, results[1].copy());
+			}
+			else if(itemstackhandler.getStackInSlot(6).isItemEqual(results[1])) {
+				itemstackhandler.getStackInSlot(6)
+						.setCount(itemstackhandler.getStackInSlot(6).getCount() + results[1].getCount());
+			}
+		}
+
+		itemstackhandler.getStackInSlot(0).setCount(itemstackhandler.getStackInSlot(0).getCount() - 1);
+		if(itemstackhandler.getStackInSlot(0).getCount() <= 0) {
+			itemstackhandler.getStackInSlot(0).isEmpty();
+		}
 	}
 
 	@Nullable
