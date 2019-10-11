@@ -191,6 +191,21 @@ public class TileEntityDistiller extends TileEntity implements ITickable{
 		if(itemstackhandler.getStackInSlot(0).getCount() <= 0) {
 			itemstackhandler.getStackInSlot(0).isEmpty();
 		}
+		
+		itemstackhandler.getStackInSlot(1).setCount(itemstackhandler.getStackInSlot(1).getCount() - 1);
+		if(itemstackhandler.getStackInSlot(1).getCount() <= 1) {
+			itemstackhandler.getStackInSlot(1).isEmpty();
+		}
+		
+		itemstackhandler.getStackInSlot(2).setCount(itemstackhandler.getStackInSlot(2).getCount() - 1);
+		if(itemstackhandler.getStackInSlot(2).getCount() <= 0) {
+			itemstackhandler.getStackInSlot(2).isEmpty();
+		}
+		
+		itemstackhandler.getStackInSlot(3).setCount(itemstackhandler.getStackInSlot(3).getCount() - 1);
+		if(itemstackhandler.getStackInSlot(3).getCount() <= 0) {
+			itemstackhandler.getStackInSlot(3).isEmpty();
+		}
 	}
 
 	@Nullable

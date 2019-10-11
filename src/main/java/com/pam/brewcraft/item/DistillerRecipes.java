@@ -3,6 +3,8 @@ package com.pam.brewcraft.item;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.pam.brewcraft.blocks.CropRegistry;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -18,6 +20,7 @@ public class DistillerRecipes {
     	//registerItemRecipe(ItemRegistry.honeycombItem, ItemRegistry.honeyItem, ItemRegistry.beeswaxItem);
         
         registerItemRecipe(Items.REEDS, Items.REEDS, Items.REEDS, ItemRegistry.beachrumitem, Items.SUGAR);
+        registerItemRecipe(CropRegistry.getFood(CropRegistry.HOPS), CropRegistry.getFood(CropRegistry.HOPS), Items.WHEAT, ItemRegistry.rennalgolditem, CropRegistry.getSeed(CropRegistry.HOPS));
     }
 
     private static void registerItemRecipe(Item input, Item input2, Item input3, Item leftItem, Item rightItem) {
