@@ -13,7 +13,7 @@ public class SlotPamDistiller extends SlotItemHandler {
 
 	@Override
 	public boolean isItemValid(ItemStack stack) {
-		if(DistillerRecipes.getDistillerResult(stack) != null)
+		if(DistillerRecipes.getDistillerResult(stack, stack, stack) != null)
 			return true;
 		return false;
 	}

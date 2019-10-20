@@ -19,6 +19,10 @@ public class ContainerDistiller extends Container {
 	
 	private TileEntityDistiller entityDistiller;
 	private int lastCookTime = 0;
+    private int cookTime;
+    private int totalCookTime;
+    private int furnaceBurnTime;
+    private int currentItemBurnTime;
 	
 	public ContainerDistiller(InventoryPlayer inventory, TileEntityDistiller entityDistiller) {
         this.entityDistiller = entityDistiller;
@@ -75,7 +79,7 @@ public class ContainerDistiller extends Container {
 
                 slot.onSlotChange(slotStack, itemStack);
             } else if (index >= 3) {
-                if (DistillerRecipes.getDistillerResult(slotStack) != null) {
+                if (DistillerRecipes.getDistillerResult(slotStack, slotStack, slotStack) != null) {
                     if (!mergeItemStack(slotStack, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }

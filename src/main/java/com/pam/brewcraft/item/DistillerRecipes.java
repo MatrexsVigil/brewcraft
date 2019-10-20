@@ -39,15 +39,15 @@ public class DistillerRecipes {
         distillingList.put(input, outputs);
     }
 
-    public static ItemStack[] getDistillerResult(ItemStack input) {
+    public static ItemStack[] getDistillerResult(ItemStack input, ItemStack input1, ItemStack input2) {
         for (Map.Entry<ItemStack, ItemStack[]> entry : distillingList.entrySet()) {
-            if (isSameItem(input, entry.getKey())) return entry.getValue();
+            if (isSameItem(input, input1, input2, entry.getKey())) return entry.getValue();
         }
 
         return null;
     }
 
-    private static boolean isSameItem(ItemStack stack, ItemStack stack2) {
+    private static boolean isSameItem(ItemStack stack, ItemStack stack2, ItemStack input2, ItemStack itemStack) {
         return stack2.getItem() == stack.getItem() && (stack2.getItemDamage() == 32767 || stack2.getItemDamage() == stack.getItemDamage());
     }
 }

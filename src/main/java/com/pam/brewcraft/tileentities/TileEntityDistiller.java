@@ -133,10 +133,19 @@ public class TileEntityDistiller extends TileEntity implements ITickable{
 		if(itemstackhandler.getStackInSlot(0).isEmpty())
 			return false;
 		
+		if(itemstackhandler.getStackInSlot(1).isEmpty())
+			return false;
+		
+		if(itemstackhandler.getStackInSlot(2).isEmpty())
+			return false;
+		
 		if (itemstackhandler.getStackInSlot(3).isEmpty())
 			return false;
-
-		final ItemStack[] results = DistillerRecipes.getDistillerResult(itemstackhandler.getStackInSlot(0));
+		
+		if (itemstackhandler.getStackInSlot(4).isEmpty())
+			return false;
+		
+		final ItemStack[] results = DistillerRecipes.getDistillerResult(itemstackhandler.getStackInSlot(0), itemstackhandler.getStackInSlot(1), itemstackhandler.getStackInSlot(2));
 		if(results == null)
 			return false;
 
@@ -164,12 +173,11 @@ public class TileEntityDistiller extends TileEntity implements ITickable{
 		if(!canRun())
 			return;
 
-		final ItemStack[] results = DistillerRecipes.getDistillerResult(itemstackhandler.getStackInSlot(0));
+		final ItemStack[] results = DistillerRecipes.getDistillerResult(itemstackhandler.getStackInSlot(0), itemstackhandler.getStackInSlot(1), itemstackhandler.getStackInSlot(2));
 		if(results == null)
 			return;
 
 		if(itemstackhandler.getStackInSlot(5).isEmpty()) {
-
 			itemstackhandler.setStackInSlot(5, results[0].copy());
 		}
 		else if(itemstackhandler.getStackInSlot(5).getCount() + results[0].getCount() <= results[0].getMaxStackSize()) {
@@ -193,7 +201,7 @@ public class TileEntityDistiller extends TileEntity implements ITickable{
 		}
 		
 		itemstackhandler.getStackInSlot(1).setCount(itemstackhandler.getStackInSlot(1).getCount() - 1);
-		if(itemstackhandler.getStackInSlot(1).getCount() <= 1) {
+		if(itemstackhandler.getStackInSlot(1).getCount() <= 0) {
 			itemstackhandler.getStackInSlot(1).isEmpty();
 		}
 		
