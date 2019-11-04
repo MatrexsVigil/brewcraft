@@ -24,6 +24,26 @@ public final class ItemRegistry {
 	public static final List<Item> itemlist = new ArrayList<Item>();
     public static final HashMap<String, Item> items = new HashMap<String, Item>();
     
+    
+    public static Item preparedbeachrummixitem;
+    public static Item preparedcherryvodkamixitem;
+    public static Item preparedcoconutrummixitem;
+    public static Item preparedhandmadevodkamixitem;
+    public static Item preparedhardapplecidermixitem;
+    public static Item preparedhardlemonademixitem;
+    public static Item preparedhoneymeadmixitem;
+    public static Item preparedpinkmoscatomixitem;
+    public static Item preparedpmaxrieslingmixitem;
+    public static Item preparedrennalgoldmixitem;
+    public static Item preparedriverchardonnaymixitem;
+    public static Item preparedsakemixitem;
+    public static Item preparedsavannazinfandelmixitem;
+    public static Item preparedspicedrummixitem;
+    public static Item preparedswampmerlotmixitem;
+    public static Item preparedtiagapinotnoirmixitem;
+	public static Item preparedtotalvodkamixitem;
+	public static Item prepareduglyavocadoginmixitem;
+	
     public static Item beachrumitem;
     public static Item cherryvodkaitem;
     public static Item coconutrumitem;
@@ -53,7 +73,26 @@ public final class ItemRegistry {
     }
     
     private static void registerDrinkItems() {
-    	beachrumitem = registerGenericItem("beachrumitem");
+    	preparedbeachrummixitem = registerGenericItem("preparedbeachrummixitem");
+    	preparedcherryvodkamixitem = registerGenericItem("preparedcherryvodkamixitem");
+    	preparedcoconutrummixitem = registerGenericItem("preparedcoconutrummixitem");
+    	preparedhandmadevodkamixitem = registerGenericItem("preparedhandmadevodkamixitem");
+    	preparedhardapplecidermixitem = registerGenericItem("preparedhardapplecidermixitem");
+    	preparedhardlemonademixitem = registerGenericItem("preparedhardlemonademixitem");
+    	preparedhoneymeadmixitem = registerGenericItem("preparedhoneymeadmixitem");
+    	preparedpinkmoscatomixitem = registerGenericItem("preparedpinkmoscatomixitem");
+    	preparedpmaxrieslingmixitem = registerGenericItem("preparedpmaxrieslingmixitem");
+    	preparedrennalgoldmixitem = registerGenericItem("preparedrennalgoldmixitem");
+    	preparedriverchardonnaymixitem = registerGenericItem("preparedriverchardonnaymixitem");
+    	preparedsakemixitem = registerGenericItem("preparedsakemixitem");
+    	preparedsavannazinfandelmixitem = registerGenericItem("preparedsavannazinfandelmixitem");
+    	preparedspicedrummixitem = registerGenericItem("preparedspicedrummixitem");
+    	preparedswampmerlotmixitem = registerGenericItem("preparedswampmerlotmixitem");
+    	preparedtiagapinotnoirmixitem = registerGenericItem("preparedtiagapinotnoirmixitem");
+    	preparedtotalvodkamixitem = registerGenericItem("preparedtotalvodkamixitem");
+    	prepareduglyavocadoginmixitem = registerGenericItem("prepareduglyavocadoginmixitem");
+        
+        beachrumitem = registerGenericItem("beachrumitem");
         cherryvodkaitem = registerGenericItem("cherryvodkaitem");
         coconutrumitem = registerGenericItem("coconutrumitem");
         handmadevodkaitem = registerGenericItem("handmadevodkaitem");
@@ -91,7 +130,7 @@ public final class ItemRegistry {
     public void onItemRegistry(RegistryEvent.Register<Item> e) {
         IForgeRegistry<Item> reg = e.getRegistry();
         reg.registerAll(itemlist.toArray(new Item[0]));
-        //GeneralOreRegistry.initOreRegistry();
+        GeneralOreRegistry.initOreRegistry();
     }
     
    

@@ -7,13 +7,17 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class SlotPamDistiller extends SlotItemHandler {
-	public SlotPamDistiller(IItemHandler inventory, int index, int xPos, int yPos) {
-		super(inventory, index, xPos, yPos);
-	}
+    
+    private final int slot;
+    
+    public SlotPamDistiller(IItemHandler inventory, int index, int xPos, int yPos) {
+        super(inventory, index, xPos, yPos);
+        this.slot = index;
+    }
 
-	@Override
+    @Override
 	public boolean isItemValid(ItemStack stack) {
-		if(DistillerRecipes.getDistillerResult(stack, stack, stack) != null)
+		if(DistillerRecipes.getDistillingResult(stack) != null)
 			return true;
 		return false;
 	}

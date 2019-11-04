@@ -1,5 +1,7 @@
 package com.pam.brewcraft.gui;
 
+import java.util.function.Predicate;
+
 import javax.annotation.Nonnull;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,22 +14,16 @@ import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class SlotPamFuel extends SlotItemHandler {
+public class SlotFilterable extends Slot {
+    private final Predicate<ItemStack> filter;
 
-	public SlotPamFuel(IItemHandler tileEntityDistiller, int index, int x, int y) {
-		super(tileEntityDistiller, index, x, y);
-	}
-	
-	
-	public boolean isItemValid(ItemStack stack)
-    {
-        return TileEntityFurnace.isItemFuel(stack) || SlotFurnaceFuel.isBucket(stack);
+    public SlotFilterable(IInventory inventory, int id, int x, int y, Predicate<ItemStack> filter) {
+        super(inventory, id, x, y);
+        this.filter = filter;
     }
 
-    public int getItemStackLimit(ItemStack stack)
-    {
-        return SlotFurnaceFuel.isBucket(stack) ? 1 : super.getItemStackLimit(stack);
+    @Override
+    public boolean isItemValid(ItemStack stack) {
+        return filter.test(stack);
     }
-
-
 }

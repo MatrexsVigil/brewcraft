@@ -22,7 +22,8 @@ public class SlotPamBottle extends SlotItemHandler {
 	
 	public boolean isItemValid(ItemStack stack)
     {
-        if (stack.getItem() == Items.POTIONITEM && PotionUtils.getPotionFromItem(stack) == PotionTypes.WATER)
+        //if (stack.getItem() == Items.POTIONITEM && PotionUtils.getPotionFromItem(stack) == PotionTypes.WATER)
+		if (stack.getItem() == Items.GLASS_BOTTLE)
 			return true;
 			
 			return false;
