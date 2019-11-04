@@ -32,9 +32,10 @@ public class ContainerDistiller extends Container {
         addSlotToContainer(new SlotPamDistiller(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 0, 56, 17));
         //Bottle
         addSlotToContainer(new SlotPamBottle(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 1, 34, 35));
+        addSlotToContainer(new SlotPamBottle(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 2, 56, 53));
         //Fuel
         //addSlotToContainer(new SlotPamFuel(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 2, 56, 53));
-        addSlotToContainer(new SlotFilterable(entityDistiller, 2, 56, 53, TileEntityFurnace::isItemFuel));
+        //addSlotToContainer(new SlotFilterable(entityDistiller, 2, 56, 53, TileEntityFurnace::isItemFuel));
         //Outputs
         addSlotToContainer(new SlotPamResult(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 3, 116, 35));
         addSlotToContainer(new SlotPamResult(entityDistiller.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 4, 135, 35));

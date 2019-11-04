@@ -33,11 +33,9 @@ public class GuiDistiller extends GuiContainer {
         int y = (height - ySize) / 2;
         drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
         
-        //if (TileEntityDistiller.isBurning(this.entityDistiller))
-        //{
-        //    int k = this.getBurnLeftScaled(13);
-        //    this.drawTexturedModalRect(x + 56, y + 36 + 12 - k, 176, 12 - k, 14, k + 1);
-        //}
+        if(this.entityDistiller.isBurning()){
+        	this.drawTexturedModalRect(x + 56, y + 36 + 12 - xSize, 176, 12 - xSize, 14, xSize + 1);
+        } 
         int progress = entityDistiller.getCookProgressScaled(24);
         drawTexturedModalRect(x + 79, y + 34, 176, 14, progress + 1, 16);
         

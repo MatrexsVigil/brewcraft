@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "brewcraft:preparedbeachrummixitem"
+  },
+
+  "ingredients": [
+    {
+      "item": "minecraft:reeds"
+    },
+    {
+      "item": "minecraft:reeds"
+    },
+    {
+      "item": "minecraft:reeds"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "listAllwater"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}
